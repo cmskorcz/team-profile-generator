@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "generate employee profiles from the command-line",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmskorcz/team-profile-generator.git"
+  },
+  "author": "chase skorczewski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmskorcz/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/cmskorcz/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
+}
