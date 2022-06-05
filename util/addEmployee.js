@@ -3,6 +3,8 @@ const inquirer = require('inquirer')
 const Engineer = require('../lib/Engineer')
 const Intern = require('../lib/Intern')
 
+const generateCards = require('../src/html-template')
+
 module.exports.addEngineer = (arr) => {
 
     inquirer
@@ -64,8 +66,10 @@ module.exports.addEngineer = (arr) => {
 
             } else {
 
-                // Finish
+                const cards = generateCards(arr)
 
+                console.log(cards)
+    
             }
         })
 }
@@ -131,8 +135,10 @@ module.exports.addIntern = (arr) => {
 
             } else {
 
-                // finish
+                const cards = generateCards(arr)
 
+                console.log(cards)
+    
             }
         })
 }

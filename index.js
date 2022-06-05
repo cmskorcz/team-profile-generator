@@ -4,6 +4,7 @@ const fs = require('fs');
 const Manager = require('./lib/Manager');
 
 const { addEngineer, addIntern} = require('./util/addEmployee')
+const generateCards = require('./src/html-template');
 
 const teamArr = [];
 
@@ -67,7 +68,9 @@ inquirer
 
         } else {
 
-            // finish
+            const cards = generateCards(teamArr)
+
+            console.log(cards)
 
         }
     })
