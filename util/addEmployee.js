@@ -4,6 +4,7 @@ const Engineer = require('../lib/Engineer')
 const Intern = require('../lib/Intern')
 
 const generateTeam = require('../src/html-template')
+const writeFile = require('./generate-page')
 
 module.exports.addEngineer = (arr) => {
 
@@ -66,7 +67,8 @@ module.exports.addEngineer = (arr) => {
 
             } else {
 
-                generateTeam(arr)
+                let template = generateTeam(arr)
+                return writeFile(template)
             }
         })
 }
@@ -132,7 +134,8 @@ module.exports.addIntern = (arr) => {
 
             } else {
 
-                generateTeam(arr)
+                let template = generateTeam(arr)
+                return writeFile(template)
             }
         })
 }
