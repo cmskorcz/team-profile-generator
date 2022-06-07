@@ -1,10 +1,11 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
 
 const Manager = require('./lib/Manager');
 
 const { addEngineer, addIntern} = require('./util/addEmployee')
+const generateTeam = require('./src/html-template');
 
+const writeFile = require('./util/generate-page')
 const teamArr = [];
 
 inquirer
@@ -67,7 +68,8 @@ inquirer
 
         } else {
 
-            // finish
-
+            let template = generateTeam(teamArr)
+            return writeFile(template)
+            
         }
     })
