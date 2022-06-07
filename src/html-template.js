@@ -1,64 +1,75 @@
-module.exports = templateDataArr => {
+const generateManager = teamArr => {
 
-    const cardArr = []
+    return `
+        <div>
+        ${teamArr
+            .filter(({ officeNumber }) => officeNumber)
+            .map(({ name, id, email, officeNumber, getRole }) => {
 
-    templateDataArr.forEach(employee => {
-        const { name, id, email, office, github, school } = employee;
-        const role = employee.getRole();
-
-        if (role === 'Manager') {
-
-            const cardTemplate = `
-            <div>
-    
-                <div>${name}</div>
-                <div>${role}</div>
-                <div>
-                    <div>${id}</div>
-                    <div>${email}</div>
-                    <div>${office}</div>
-                </div>
-    
-            </div>
-            `
-            cardArr.push(cardTemplate)
-
-        } else if (role === 'Engineer') {
-
-            const cardTemplate = `
-            <div>
-    
-                <div>${name}</div>
-                <div>${role}</div>
-                <div>
-                    <div>${id}</div>
-                    <div>${email}</div>
-                    <div>${github}</div>
-                </div>
-    
-            </div>
-            `
-            
-            cardArr.push(cardTemplate)
-        } else {
-
-            const cardTemplate = `
-            <div>
-    
-                <div>${name}</div>
-                <div>${role}</div>
-                <div>
-                    <div>${id}</div>
-                    <div>${email}</div>
-                    <div>${school}</div>
-                </div>
-    
-            </div>
-            `    
-            cardArr.push(cardTemplate)
+                return `
+                    <h2>${name}</h2>
+                    <h3>${getRole()}</h3>
+                    <p>${id}</p>
+                    <p>${email}</p>
+                    <p>${officeNumber}</p>
+                
+                `
+            })
+            .join('')
         }
-    })
+        </div>
+    
+    `
+}
 
-    return cardArr
+const generateEngineer = teamArr => {
+
+    return teamArr
+        .filter(({ github }) => github)
+
+        .map(({ name, id, email, github, getRole }) => {
+
+            return `
+            <div>
+                <h2>${name}</h2>
+                <h3>${getRole()}</h3>
+                <p>${id}</p>
+                <p>${email}</p>
+                <p>${github}</p>
+            </div>
+            `
+        })
+        .join('')
+}
+
+const generateIntern = teamArr => {
+
+    return teamArr
+        .filter(({ school }) => school)
+        .map(({ name, id, email, school, getRole }) => {
+
+            return `
+            <div>
+                <h2>${name}</h2>
+                <h3>${getRole()}</h3>
+                <p>${id}</p>
+                <p>${email}</p>
+                <p>${school}</p>
+            </div>
+            `
+        })
+        .join('')
+    
+}
+
+module.exports = templateData => {
+
+    return `
+        <main>
+            ${generateManager(templateData)}
+            ${generateEngineer(templateData)}
+            ${generateIntern(templateData)}
+        </main>
+    `
 
 }
