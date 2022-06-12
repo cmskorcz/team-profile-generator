@@ -11,7 +11,7 @@ A profile generator using the command line to take user input and create employe
 ### Installation
 Clone code to local repo and run `npm i` to install dependencies
 ### Usage
-User will run node index.js to start application, and then follow prompts in command line. Finished HTML file will be generated and available in dist/
+User will run `node index.js` to start application, and then follow prompts in command line. Finished HTML file will be generated and available in `dist/`. Tutorial video also available: [Tutorial](https://drive.google.com/file/d/1S68pXb3BhZEhHK2Unhz9A9faI5v6op6C/view).
 ### License
 Unlicensed
 ### Contributing
